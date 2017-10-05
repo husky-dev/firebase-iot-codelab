@@ -16,6 +16,7 @@
 // "myfirebaseproject-b6c78.firebaseio.com"
 #define FIREBASE_HOST "example.firebaseio.com"
 // Sensor configs
+// Change sensor pin number if needed
 #define DHT_PIN 5
 #define DHT_TYPE DHT11
 DHT dht(DHT_PIN, DHT_TYPE);

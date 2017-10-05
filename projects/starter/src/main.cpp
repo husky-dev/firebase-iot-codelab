@@ -6,7 +6,7 @@
 #include <DHT.h>
 
 // Sensor configs
-#define DHTPIN 2
+#define DHTPIN 5
 #define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
 // WiFi configs

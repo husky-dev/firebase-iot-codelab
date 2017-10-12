@@ -10,7 +10,7 @@ Content:
 - [Temperature and humidity sensor](docs/en/03-temperature-and-humidity-sensor.md)
 - [Saving data to the Firebase](docs/en/04-saving-data-to-firebase.md)
 - [Micro servo](docs/en/05-micro-servo.md)
-- [Getting data from the Firebase](docs/uk/06-getting-data-from-firebase.md)
+- [Getting data from the Firebase](docs/en/06-getting-data-from-firebase.md)
 - [LED control](docs/en/07-led-control.md)
 
 ## Українська

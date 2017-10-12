@@ -63,4 +63,4 @@ delay(1000);
 
 В наступній частині ми навчимось як керувати сервоприводом за допомогою Firebase.
 
-[Далі: Отримання даних з Firebase](06-getting-data-from-firebase.md)
+[Next: Getting data from the Firebase](06-getting-data-from-firebase.md)

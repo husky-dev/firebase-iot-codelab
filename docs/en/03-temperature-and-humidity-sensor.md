@@ -111,4 +111,4 @@ void loop(){
 
 В наступній частині ми навчимось зберігати дані температури та вологості в Firebase.
 
-[Далі: Зберігання даних в Firebase](04-saving-data-to-firebase.md)
+[Next: Saving data to the Firebase](04-saving-data-to-firebase.md)

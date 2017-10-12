@@ -1,4 +1,4 @@
-# LEDs control
+# LED control
 
 Our next task - навчитись керувати трьохкольоровим світлодіодом через Firebase.
 

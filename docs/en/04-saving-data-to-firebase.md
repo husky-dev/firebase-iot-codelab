@@ -103,4 +103,4 @@ if (Firebase.failed()) {
 
 ![Data history](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image49.png)
 
-[Далі: Сервопривід](05-micro-servo.md)
+[Next: Micro servo](05-micro-servo.md)

@@ -2,13 +2,13 @@
 
 Перейдіть в адмін панель Firebase та створіть новий запис з шляхом `servo/angle` зі значенням `0`. Це можна зробити натиснувши "+" поруч з коренем бази:
 
-![Add new key](image1.png)
+![Add new key](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image1.png)
 
 Після чого натисніть "ADD". З’явиться відповідний запис в базі.
 
-![Add new value](image39.png)
+![Add new value](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image39.png)
 
-![Add new value](image57.png)
+![Add new value](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image57.png)
 
 Наша задача - отримувати значення поля "servo/angle" та повертати наш сервопривід на відповідний кут.
 
@@ -69,8 +69,8 @@ void loop(){
 
 Скомпілюйте код та завантажте його на девайс. Змініть значення змінної в Firebase через адмін-панель. Якщо все було зроблено правильно - ваш девайс "оживе" і сервопривід почне повертатись на заданий кут.
 
-![Servo angle in the Firebase](image46.png)
+![Servo angle in the Firebase](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image46.png)
 
-![Changin servo angle](image54.png)
+![Changin servo angle](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image54.png)
 
 [Далі: Керування світлодіодами](link)

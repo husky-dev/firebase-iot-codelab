@@ -35,14 +35,14 @@ void loop(){
 
 Скомпілюйте та завантажте програму як ми це робили перед цим. Відкрийте вікно моніторингу послідовного інтерфейсу натиснувши цю кнопку:
 
-![serial-monitor](image24.png)
+![serial-monitor](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image24.png)
 
 Перевірте, щоб у вікні налашутваня інтерфейсу був обраний правильний порт (може з’явитись не відразу), та щоб обрана швидкість відповідала швидкості, котру ви вказали в коді програми.
 
-![select-port](image7.png)
+![select-port](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image7.png)
 
 Після цього відкриється вікно, де ви зможете переглядати лог виконання вашої програми.
 
-![termo-data](image17.png)
+![termo-data](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image17.png)
 
 [Далі: Сенсор температури та вологості](link)

@@ -2,41 +2,41 @@
 
 Для отримання даних про температуру і вологість навколишнього середовища ми будемо використовувати сенсор DHT11.
 
-![DHT11](image25.png)
+![DHT11](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image25.png)
 
 Як ви можете бачити у нього три виводи (підписи біля ніжок): VCC (+5V), GND (мінус або земля), DATA (вивід передачі даних). Для легкості підключення і збирання схеми ми будемо використовувати монтажну плату.
 
-![breadboard](image35.png)
+![breadboard](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image35.png)
 
 Схема нижче дозволить вам краще зрозуміти, як вона працює. Червоними, синіми та чорними лініями показано, як поєднані між собою виводи.
 
-![breadboard](image18.png)
+![breadboard](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image18.png)
 
 Зі схеми можна зрозуміти, що для того щоб підключити якийсь дріт до нашої плати, необхідно його ввімкнути поруч з відповідним виводом.
 
 Для підключення сенсора в нашому прикладі необхідно підключити вивід `VCC` сенсора до виводу `3V` (живлення 3.3V) плати, `GND` з виводом `G` (мінус), а `DATA` з `D1` (`GPIO5`). Зазвичай для сенсорів і інших зовнішніх пристроїв обирають кольорові дроти, щоб було легше їх з’єднувати. Щоб полегшити задачу, найсвітліший використовують для дротів живлення (білий в прикладі), найтемніший - для `GND` (чорний), а інші для виводів керування та передачі даних. Підключаємо сенсор до плати.
 
-![DHT11 connect](image59.png)
+![DHT11 connect](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image59.png)
 
-![DHT11 breadboard connect](image38.png)
+![DHT11 breadboard connect](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image38.png)
 
 Якщо все підключено правильно і плата увімкнена в USB - світлодіод на сенсорі засвітиться.
 
 Переходимо до коду. Для роботи з сенсором нам необхідно встановити відповідну бібліотеку. Натисніть кнопку "Home" на панелі інструментів.
 
-![platformio home](image20.png)
+![platformio home](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image20.png)
 
 Потім у новому вікні оберіть вкладку "Libraries".
 
-![libraries](image50.png)
+![libraries](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image50.png)
 
 За допомогою пошуку знайдіть бібліотеку "DHT sensor library" автора "Adafruit Industries":
 
-![adafruit DHT11 library](image51.png)
+![adafruit DHT11 library](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image51.png)
 
 Натисніть на бібліотеку і встановіть її:
 
-![install library](image55.png)
+![install library](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image55.png)
 
 Поверніться до вашого файлу main.cpp та додайте в нього наступний код:
 
@@ -105,7 +105,7 @@ void loop(){
 
 Відкрийте монітор послідовного порту. Якщо все було зроблено правильно і все працює, то ви побачите наступну картину:
 
-![sensor data](image42.png)
+![sensor data](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image42.png)
 
 Для перевірки роботи сенсора затисніть його в долоні і подуйте теплим повітрям. Через декілька секунд ви побачите що дані температури та вологості почнуть змінюватись.
 

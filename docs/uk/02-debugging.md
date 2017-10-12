@@ -45,4 +45,4 @@ void loop(){
 
 ![termo-data](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image17.png)
 
-[Далі: Сенсор температури та вологості](link)
+[Далі: Сенсор температури та вологості](03-temperature-and-humidity-sensor.md)

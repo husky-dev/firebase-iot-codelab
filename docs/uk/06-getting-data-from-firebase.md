@@ -73,4 +73,4 @@ void loop(){
 
 ![Changin servo angle](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image54.png)
 
-[Далі: Керування світлодіодами](link)
+[Далі: Керування світлодіодами](07-leds-control.md)

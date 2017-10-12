@@ -1,26 +1,26 @@
 # Micro servo
 
-Щоб краще продемонструвати алгоритм отримання даних з бази ми будемо використовувати сервопривід.
+To better demonstrate the algorithm for reading data from the database, we will use a servo drive.
 
 ![Servo](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image14.png)
 
-Сервопривід - це спеціальний мотор, котрий може повертатись тільки на 180 градусів. Основна його задача - утримувати кут, котрий ви йому задасте. Наприклад якщо ми встановимо кут у 45 градусів, то він повернеться на цей кут і буде робити все, щоб його утримати, навіть якщо ви будете намагатись повернути його силою.
+The servo drive is a special engine that can only rotate 180 degrees. His main task is to keep the angle that you set to him. For example, if we set the angle to 45 degrees, then he will set this angle and will do everything to keep him, even if you try to bring it back by force.
 
-УВАГА! Просимо не прокручувати сервопривід вручну. Це може зруйнувати зубчики його шестерней.
+WARNING! Please do not scroll the servo manually by hands. This can destroy the pinions of his gear.
 
-Прикладом використання сервоприводу може бути елерон літака, який підіймається вгору і вниз за командою пілота, і намагається утримувати необхідний кут. Звісно, в справжніх літаках використовуються більш складні механізми, ніж сервоприводи. Але в радіо-керованих моделях використовуються саме вони.
+An example of using a servo drive can be an elephant aircraft, which rises up and down by the pilot's command, and tries to keep the required angle. Of course, these planes use more sophisticated mechanisms than servo drives. But in radio-controlled models they use it.
 
 ![Wing](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image31.png)
  
-## Підключення
+## Connection
 
-У сервопривода три виводи: `VCC` (живлення +5V, червоний), `GND` (земля, коричневий або чорний) та `DATA` (помаранчевий). Відповідно, червоний треба приєднати до виводу `3V` нашого девайсу, коричневий -> `G`, а помаранчевий на керуючий вивід, у даному прикладі `D2` (`GPIO4`).
+The servo has three outputs: `VCC` (power suply +5V, red), `GND` (ground, brown or black) and `DATA` (orange). Accordingly, the red one must be connected to the pin `3V` of our device, brown -> `G`, and orange to the control pin, in this example `D2` (`GPIO4`).
 
 ![Connect micro servo to the NodeMCU](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image19.png)
 
-## Код
+## Code
 
-Бібліотека для керування сервоприводом вже вбудована в стандартний набір бібліотек для Arduino, тому встановлювати нічого не потрібно. Нижче наведений мінімальний код для керування сервоприводом. Ви можете його додати в існуючий проект або створити новий.
+The library for servo control is already built in into the standard library for Arduino. Below is the minimum code for servo control. You can add it to an existing project or create a new one.
 
 ```c++
 #include <Arduino.h>
@@ -48,7 +48,7 @@ void loop(){
     delay(2000);
 }
 
-В прикладі нижче сервопривід буде повертатись на два градуси кожні 100 мс, а потім повертатись в первинний стан:
+In the example below, the servo will be rotated by two degrees every 100 ms and then returned to its original state:
 
 ```c++
 for(int i = 0; i < 90; i++){
@@ -61,6 +61,6 @@ myServo.write(0);
 delay(1000);
 ```
 
-В наступній частині ми навчимось як керувати сервоприводом за допомогою Firebase.
+In the next section, we will learn how to control a servo with the Firebase.
 
 [Next: Getting data from the Firebase](06-getting-data-from-firebase.md)

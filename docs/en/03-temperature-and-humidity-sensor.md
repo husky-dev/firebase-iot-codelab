@@ -1,91 +1,92 @@
 # Temperature and humidity sensor
 
-Для отримання даних про температуру і вологість навколишнього середовища ми будемо використовувати сенсор DHT11.
+We will use a DHT11 sensor to get data about temperature and humidity of the environment.
 
 ![DHT11](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image25.png)
 
-Як ви можете бачити у нього три виводи (підписи біля ніжок): VCC (+5V), GND (мінус або земля), DATA (вивід передачі даних). Для легкості підключення і збирання схеми ми будемо використовувати монтажну плату.
+As you can see it has three outputs (labels near to the pins): VCC (+5V), GND (ground), DATA (data transmission output).For ease of connection and assembling of the circuit, we will use the breadboard.
 
 ![breadboard](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image35.png)
 
-Схема нижче дозволить вам краще зрозуміти, як вона працює. Червоними, синіми та чорними лініями показано, як поєднані між собою виводи.
+The diagram below will allow you to better understand how it works. The red, blue and black lines show how the pins are connected.
 
 ![breadboard](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image18.png)
 
-Зі схеми можна зрозуміти, що для того щоб підключити якийсь дріт до нашої плати, необхідно його ввімкнути поруч з відповідним виводом.
+You can see that in order to connect a wire to your board, you need to connect it next to the corresponding pin.
 
-Для підключення сенсора в нашому прикладі необхідно підключити вивід `VCC` сенсора до виводу `3V` (живлення 3.3V) плати, `GND` з виводом `G` (мінус), а `DATA` з `D1` (`GPIO5`). Зазвичай для сенсорів і інших зовнішніх пристроїв обирають кольорові дроти, щоб було легше їх з’єднувати. Щоб полегшити задачу, найсвітліший використовують для дротів живлення (білий в прикладі), найтемніший - для `GND` (чорний), а інші для виводів керування та передачі даних. Підключаємо сенсор до плати.
+To connect the sensor in our example you need to connect pin `VCC` to the pin `3V` (3.3V) of the device, `GND` to the `G` (ground), `DATA` to the `D1` (`GPIO5`). Typically, for sensors and other external devices, colored wires are selected to make it easier to connect them. To ease the task, the lightest is used for power wires (white in the example), darkest - for `GND` (black), and others for outputs of data management and data transmission. Connect the sensor to the board.
 
 ![DHT11 connect](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image59.png)
 
 ![DHT11 breadboard connect](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image38.png)
 
-Якщо все підключено правильно і плата увімкнена в USB - світлодіод на сенсорі засвітиться.
+If everything is connected correctly and the board is turned on in USB - the LED on the sensor will light up.
 
-Переходимо до коду. Для роботи з сенсором нам необхідно встановити відповідну бібліотеку. Натисніть кнопку "Home" на панелі інструментів.
+To work with the sensor, we need to install the appropriate library. Click the "Home" button at the toolbar.
 
 ![platformio home](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image20.png)
 
-Потім у новому вікні оберіть вкладку "Libraries".
+Then select "Libraries" tab.
 
 ![libraries](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image50.png)
 
-За допомогою пошуку знайдіть бібліотеку "DHT sensor library" автора "Adafruit Industries":
+Search for the "DHT sensor library" by the author of "Adafruit Industries":
 
 ![adafruit DHT11 library](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image51.png)
 
-Натисніть на бібліотеку і встановіть її:
+Click on the library and install it:
 
 ![install library](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image55.png)
 
-Поверніться до вашого файлу main.cpp та додайте в нього наступний код:
+Return to your `main.cpp` file and add the following code to it:
 
 ```c++
 #include <Arduino.h>
-// Підключаємо бібліотеку котра допоможе нам
-// з легкістю використовувати сенсор
+// Connecting the library which help us
+// easy to use the sensor
 #include <DHT.h>
-// Створюємо константи з номером піну
-// на якому знаходиться наш сенсор та з його моделлю
+// Defining the constant with
+// the number of the pin which
+// connected to our sensor
 #define DHT_PIN 5
 #define DHT_TYPE DHT11
-// Створюємо об’єкт класу DHT та зберігаємо
-// у змінній dht. У якості параметрів передаємо номер піну
-// та тип нашого сенсору
+// Create an object of the DHT class and store it
+// in the dht variable. As a parameter, we pass the pin number
+// and type of the our sensor
 DHT dht(DHT_PIN, DHT_TYPE);
 
 void setup(){
     Serial.begin(115200);
     Serial.println("DHTxx test!");
-    // Запускаємо сканування сенсора
+    // Launch the sensor scan
     dht.begin();
 }
 
 void loop(){
-    // Робимо затримку між вимірами
+    // Make a delay between measurements
     delay(2000);
-    // Читання даних з сенсору займає 250мс!
-    // Дані можуть бути застарілі на 2 секунди (це досить повільний сенсор).
-    // Зчитуємо процент вологості
+    // Reading data from the sensor takes 250ms!
+    // Data may be outdated for 2 seconds (this is a fairly slow sensor).
+    // Read the percentage of humidity
     float h = dht.readHumidity();
-    // Зчитуємо температуру в Цельсіях (за замовчуванням)
+    // Read the temperature in Celsius (default)
     float t = dht.readTemperature();
-    // Зчитуєм температуру в Фарингейтах (isFahrenheit = true)
+    // Read the temperature in Fahrenheit (is Fahrenheit = true)
     float f = dht.readTemperature(true);
-    // Перевіряємо чи всі виміри вірні. Якщо
-    // стається помилка зчитування, то код повертає значення
-    // NaN (not a number - не число)
-    // Помилки зчитування не рідкість. Існує багато факторів, котрі
-    // можуть їх спричинити
+    // We check is all the measurements are correct. If
+    // some error will happen, method will return
+    // NaN (not a number)
+    // Error reading is not uncommon. 
+    // There are many factors that can cause them.
     if (isnan(h) || isnan(t) || isnan(f)) {
         Serial.println("Failed to read from DHT sensor!");
-        // Якщо хоч один з вимірі не вірний, то закінчуємо програму раніше
-        // щоб зробити виміри заново
+        // If at least one of the measure is not correct, then finish the program before
+        // and start measure again
         return;
     }
-    // Вираховуємо індекс нагрівання в Фарингейтах (за замовчуванням)
+    // Calculate the heating index in Farydayahati (by default)
     float hif = dht.computeHeatIndex(f, h);
-    // Вираховуємо індекс нагрівання в Цельсіях (isFahreheit = false)
+    // Calculate the heating index in Celsius (isFahreheit = false)
     float hic = dht.computeHeatIndex(t, h, false);
     Serial.print("Humidity: ");
     Serial.print(h);
@@ -103,12 +104,12 @@ void loop(){
 }
 ```
 
-Відкрийте монітор послідовного порту. Якщо все було зроблено правильно і все працює, то ви побачите наступну картину:
+Open the monitor of the serial port. If everything was done correctly and everything works, then you will see the following screen:
 
 ![sensor data](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image42.png)
 
-Для перевірки роботи сенсора затисніть його в долоні і подуйте теплим повітрям. Через декілька секунд ви побачите що дані температури та вологості почнуть змінюватись.
+To check the sensor, press it in the palm of your hand and blow it with warm air. After a few seconds, you will see that the temperature and humidity data will change.
 
-В наступній частині ми навчимось зберігати дані температури та вологості в Firebase.
+In the next section, we will learn how to store the temperature and humidity data in Firebase.
 
 [Next: Saving data to the Firebase](04-saving-data-to-firebase.md)

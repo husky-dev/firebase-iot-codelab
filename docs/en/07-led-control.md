@@ -1,20 +1,20 @@
 # LED control
 
-Our next task - навчитись керувати трьохкольоровим світлодіодом через Firebase.
+Our next task - learn how to control a RGB LED through the Firebase.
 
 ![Led pins](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image32.png)
 
-Ми будемо використовувати трьохкольоровий світлодіод з загальним анодом. Його можна представити собі у вигляді трьох світлодіодів, у котрих з’єднаний "+", але роз’єднаний "-". Тобто, щоб  засвітився необхідний світлодіод, треба подати на його вивід "-", а на всі інші "+". Найдовший вивід - це загальний "+", коротший справа - червоний, перший зліва - синій, другий зліва - зелений. Встановіть світлодіод на монтажну плату та підключіть чотири проводи. Для зручності в нашому прикладі ми підключили жовтий провід до загального "+" (найдовший вивід), а червоний, зелений і синій - до відповідних виводів світлодіода. Те ж саме радимо зробити і вам.
+We will use a three-color LED with a common anode. It can be imagined in the form of three LEDs, which has shared "+", but disconnected "-". In order to turn on the required LED, you must submit for its output "-", and for all other "+". The longest output is the common +, the shorter the right is red, the first to the left is blue, the second to the left is green. Install LED on breadbord and connect four wires. For convenience, in our example, we connected yellow wire to the total "+" (the longest output), and red, green, and blue - to the corresponding LED outputs. The same is recommended for you.
 
 ![Led connection](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image15.png)
 
-Подайте живлення на вашу плату. Підключіть загальний вивід (жовтий) до будь-якого виводу плати з позначкою `3V` (живлення 3.3V). Підключіть по черзі кожен з інших дротів світлодіода до виводу `G` (мінус) плати. Якщо все було зроблено правильно, то засвітяться по черзі різні кольори.
+Power on your board. Connect the common wire (yellow) to any pin of the board labled "3V" (3.3V). Connect one by one each of the other LEDs to the output of the `G` (minus) of the device. If everything was done correctly, different colors will turn on.
 
-Тепер переходимо до задачі. Для початку нам треба підключити світлодіод до нашої плати. Ви можете обрати для цього три будь-які виводи GPIO. У прикладі ми обрали `D5` (`GPIO14`), `D6` (`GPIO12`), `D7` (`GPIO13`). Загальний провід (жовтий) ми підключили на сусідній вивід `3V`.
+Now let's move on to the task our. First of all, we need to connect the LED to our board. You can select for this three any GPIO outputs. In the example below we chose `D5` (` GPIO14`), `D6` (` GPIO12`), `D7` (` GPIO13`). The common wire (yellow) we connected to the neighboring output `3V`.
 
 ![Led connection](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image23.png)
 
-Напишемо невелику програму щоб перевірити, чи вірно ми все підключили.
+Let's write a small program to check if everything is working.
 
 ```c++
 #include <Arduino.h>
@@ -24,21 +24,21 @@ Our next task - навчитись керувати трьохкольорови
 #define GREEN_PIN 14
 #define BLUE_PIN 12
 
-// допоміжна функція для включення світлодіода
-// так як у нас світлодіод з загальним анодом то
-// для його включення необхідно встановити на
-// ньому мінус (нуль)
+// help function for turning on the LED
+// as we have a LED with a common anode then
+// for its turning on it is necessary to set it to
+// minus (zero)
 void ledOn(byte pin){
     digitalWrite(pin, LOW);
 }
 
-// відповідно для виключення необхідно встановити
-// плюс (один)
+// accordingly for the exception it is necessary to set
+// plus 3.3V (one)
 void ledOff(byte pin){
     digitalWrite(pin, HIGH);
 }
 
-// функція для виключення всіх світлодіодів
+// function for turning off all LEDs
 void ledsOff(){
     ledOff(RED_PIN);
     ledOff(GREEN_PIN);
@@ -46,88 +46,88 @@ void ledsOff(){
     Serial.print("All leds OFF");
 }
 
-// ввімкнути червоний
+// turn on red
 void redLedOn(){
     ledOn(RED_PIN);
     Serial.println("Red led ON");
 }
 
-// ввімкнути зелений
+// turn on green
 void greenLedOn(){
     ledOn(GREEN_PIN);
     Serial.println("Green led ON");
 }
 
-// ввімкнути синій
+// turn on blue
 void blueLedOn(){
     ledOn(BLUE_PIN);
     Serial.println("Blue led ON");
 }
 
 void setup(){
-    // Налаштовуємо послідовний порт
+    // Set up serial port
     Serial.begin(115200);
-    // Налаштовуємо піни на вихід
+    // Configure pins for output
     pinMode(RED_PIN, OUTPUT);
     pinMode(GREEN_PIN, OUTPUT);
     pinMode(BLUE_PIN, OUTPUT);
-    // на всяк випадок вимикаємо всі піни
+    // just in case, turn off all pins
     ledsOff();
 }
 
 void loop(){
-    // вмикаємо червоний і чекаємо 1с
+    // turn on red and wait 1s
     redLedOn();
     delay(1000);
-    // вимикаємо всі
+    // turn off all
     ledsOff();
-    // вмикаємо зелений і чекаємо 1с
+    // turn on green and wait 1s
     greenLedOn();
     delay(1000);
-    // вимикаємо всі
+    // turn off all
     ledsOff();
-    // вмикаємо синій і чекаємо 1с
+    // turn on blue and wait 1s
     blueLedOn();
     delay(1000);
-    // вимикаємо всі
+    // turn off all
     ledsOff();
-    // починаємо все з початку
+    // start from the beginning
 }
 ```
 
-Запустіть програму і перевірте, чи все працює.
+Run the program and check that everything is working.
 
-Тепер час підключити девайс до Firebase і отримувати колір світлодіода звідти. Відкрийте адмін-панель Firebase та додайте новий запис:
+Now it's time to connect the device to Firebase and get the color of the LED from there. Open the Firebase admin panel and add a new entry:
 
 ![Adding new record](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image44.png)
 
-Код підключення до WiFi та Firebase ви можете скопіювати з минулого проекту або з папки `projects/firebase-rgb-led` скачаного з репозиторію. Основний код буде виглядати так:
+You can copy the connection code to the WiFi and Firebase from the previous project or from the folder `%repository%/projects/firebase-rgb-led` downloaded from the repository. The basic code will look like this:
 
 ```c++
-// Тут ми будемо зберігати попереднє значення
-// отримане з Firebse щоб не перемикати світлодіоди
-// щоразу як ми отримаємо дані з Firebase
+// Here we will save the previous value
+// received from the Firebse so you do not switch the LEDs
+// every time when we get the same data from Firebase
 String prevLedVal;
 
 void loop(){
-    // Отримаємо рядок, котрий зберігається
-    // за шляхом /led
+    // Get a string that is stored
+    // at path /led
     String val = Firebase.getString("led");
-    // Перевіряєм чи не сталось помилки
+    // Check for errors
     if (Firebase.failed()) {
         Serial.println("Getting data failed");
         delay(2000);
         return;
     }
-    // Якщо нове значення відрізняється від попереднього
-    // то оновлюємо стан світлодіода
+    // If the new value is different from the previous one
+    // then update the state of the LED
     if(val != prevLedVal){
         Serial.print("New value: ");
         Serial.println(val);
-        // Вимикаємо всі світлодіоди
+        // Turn off all the LEDs
         ledsOff();
-        // Перевіряємо отримане значення та вмикаємо необхідний
-        // світлодіод
+        // Check the obtained value and turning on
+        // the necessary LED
         if(val == "red"){
             redLedOn();
         }else if(val == "green"){
@@ -135,10 +135,10 @@ void loop(){
         }else if(val == "blue"){
             blueLedOn();
         }
-        // Зберігаємо отримане значення щоб не повторюватись
+        // Keep received value in order to avoid repeating
         prevLedVal = val;
     }
 }
 ```
 
-Змініть значення запису в базі на `red`, `blue` та `off` і перевірте чи все працює вірно.
+Change the record value in the database to `red`, `blue`, `off` and check if everything works correctly.

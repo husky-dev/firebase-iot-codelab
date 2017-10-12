@@ -1,16 +1,16 @@
 # Getting data from the Firebase
 
-Перейдіть в адмін панель Firebase та створіть новий запис з шляхом `servo/angle` зі значенням `0`. Це можна зробити натиснувши "+" поруч з коренем бази:
+Go to the admin panel and create a new entry with the path `servo/angle` with the value `0`. You can do this by clicking "+" next to the root of the database:
 
 ![Add new key](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image1.png)
 
-Після чого натисніть "ADD". З’явиться відповідний запис в базі.
+Then click "ADD". A corresponding entry will be displayed in the database.
 
 ![Add new value](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image39.png)
 
 ![Add new value](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image57.png)
 
-Наша задача - отримувати значення поля "servo/angle" та повертати наш сервопривід на відповідний кут.
+Our task is to get the value of the field "servo / angle" and turn our servo to the appropriate angle.
 
 ```c++
 #include <Arduino.h>
@@ -67,7 +67,7 @@ void loop(){
 }
 ```
 
-Скомпілюйте код та завантажте його на девайс. Змініть значення змінної в Firebase через адмін-панель. Якщо все було зроблено правильно - ваш девайс "оживе" і сервопривід почне повертатись на заданий кут.
+Compile the code and upload it to the device. Change the variable value in the Firebase through the admin panel. If everything was done correctly - your device will become "alive" and the servo drive will turn to a given angle.
 
 ![Servo angle in the Firebase](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image46.png)
 

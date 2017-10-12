@@ -2,6 +2,8 @@
 
 ## English
 
+Content:
+
 - [Intro](docs/en/00-intro.md)
 - [Setting up the environment](docs/en/01-ide.md)
 - [Debugging](docs/en/02-debugging.md)

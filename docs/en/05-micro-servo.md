@@ -47,6 +47,7 @@ void loop(){
     myServo.write(180);
     delay(2000);
 }
+```
 
 In the example below, the servo will be rotated by two degrees every 100 ms and then returned to its original state:
 

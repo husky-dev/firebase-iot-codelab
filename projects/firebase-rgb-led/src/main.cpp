@@ -76,8 +76,6 @@ void setup(){
   Firebase.begin(FIREBASE_HOST);
 }
 
-String prevLedVal;
-
 void loop(){
   String val = Firebase.getString("led");
   // Check if operation succeed

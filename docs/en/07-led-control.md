@@ -43,7 +43,7 @@ void ledsOff(){
     ledOff(RED_PIN);
     ledOff(GREEN_PIN);
     ledOff(BLUE_PIN);
-    Serial.print("All leds OFF");
+    Serial.println("All leds OFF");
 }
 
 // turn on red
@@ -122,7 +122,7 @@ void loop(){
     // If the new value is different from the previous one
     // then update the state of the LED
     if(val != prevLedVal){
-        Serial.print("New value: ");
+        Serial.println("New value: ");
         Serial.println(val);
         // Turn off all the LEDs
         ledsOff();

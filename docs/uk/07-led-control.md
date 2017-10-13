@@ -43,7 +43,7 @@ void ledsOff(){
     ledOff(RED_PIN);
     ledOff(GREEN_PIN);
     ledOff(BLUE_PIN);
-    Serial.print("All leds OFF");
+    Serial.println("All leds OFF");
 }
 
 // ввімкнути червоний
@@ -122,7 +122,7 @@ void loop(){
     // Якщо нове значення відрізняється від попереднього
     // то оновлюємо стан світлодіода
     if(val != prevLedVal){
-        Serial.print("New value: ");
+        Serial.println("New value: ");
         Serial.println(val);
         // Вимикаємо всі світлодіоди
         ledsOff();

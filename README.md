@@ -10,7 +10,7 @@ In this codelab, you will create your own IoT device, connect it to the WiFi and
 
 Зміст:
 
-- [Інро](docs/uk/00-intro.md)
+- [Інтро](docs/uk/00-intro.md)
 - [Налаштування середовища](docs/uk/01-ide.md)
 - [Налагодження програми](docs/uk/02-debugging.md)
 - [Сенсор температури та вологості](docs/uk/03-temperature-and-humidity-sensor.md)

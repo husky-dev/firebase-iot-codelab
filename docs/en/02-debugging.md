@@ -13,7 +13,7 @@ For using the interface, we need to slightly modify our program:
 
 void setup(){
     pinMode(ONBOARD_LED_PIN, OUTPUT);
-    // Initializing the serial interfase. We have to provide
+    // Initializing the serial interface. We have to provide
     // interface speed to the begin method.
     // If you will see the strange symbols in the terminal -
     // it's can be coused by setting different speed in the

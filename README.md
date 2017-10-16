@@ -2,8 +2,9 @@
 
 In this codelab, you will create your own IoT device, connect it to the WiFi and Firebase. You will push data from sensors to the Firebase and will get data from it in order to control different devices. This lab is available in two languages. Please fill free to send pull request with typo fixes and other bug fixes.
 
+- [Presentation](https://docs.google.com/presentation/d/1gYpgK1r4yrxhTa-2HbSGoW-5XYRJlU_LsLqz5WrKtV8/edit?usp=sharing)
 - [Українська](#Українська)
-- [English](#English)
+- [English](#english)
 
 ## Українська
 

@@ -2,7 +2,6 @@
 
 In this codelab, you will create your own IoT device, connect it to the WiFi and Firebase. You will push data from sensors to the Firebase and will get data from it in order to control different devices. This lab is available in two languages. Please fill free to send pull request with typo fixes and other bug fixes.
 
-- [Presentation](https://docs.google.com/presentation/d/1gYpgK1r4yrxhTa-2HbSGoW-5XYRJlU_LsLqz5WrKtV8/edit?usp=sharing)
 - [Українська](#Українська)
 - [English](#english)
 
@@ -31,6 +30,14 @@ Content:
 - [Micro servo](docs/en/05-micro-servo.md)
 - [Getting data from the Firebase](docs/en/06-getting-data-from-firebase.md)
 - [LED control](docs/en/07-led-control.md)
+
+## Presentation
+
+Checkout [presentation](https://docs.google.com/presentation/d/1gYpgK1r4yrxhTa-2HbSGoW-5XYRJlU_LsLqz5WrKtV8/edit?usp=sharing) with the compact intro information.
+
+## Thanks
+
+- [GDG DevFest Ukraine](https://devfest.gdg.org.ua/)
 
 ## Contacts
 

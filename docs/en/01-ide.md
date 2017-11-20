@@ -8,6 +8,10 @@ PlatformIO has a specialized plug-in for the Atom editor, which transforms it in
 
 Please check the ["Possible errors"](#Possible-errors) section before installing all software. This can save you time. For more details, the process of installing the plugin for all operating systems is described on the PlatformIO website:  [http://docs.platformio.org/en/latest/ide/atom.html](http://docs.platformio.org/en/latest/ide/atom.html)
 
+- [Windows](#windows)
+- [MacOS](#macos)
+- [Linux](#linux)
+
 ## Windows
 
 Download and install Atom from the official site [https://atom.io/](https://atom.io/). Launch the editor. Click "Install a Package" and "Open Installer".

@@ -44,6 +44,7 @@ Return to your `main.cpp` file and add the following code to it:
 #include <Arduino.h>
 // Connecting the library which help us
 // easy to use the sensor
+#include <Adafruit_Sensor.h>
 #include <DHT.h>
 // Defining the constant with
 // the number of the pin which

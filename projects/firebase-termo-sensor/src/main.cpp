@@ -3,6 +3,7 @@
 #include <ESP8266HTTPClient.h>
 #include <ESP8266WebServer.h>
 #include <FirebaseArduino.h>
+#include <Adafruit_Sensor.h>
 #include <DHT.h>
 
 // WiFi configs

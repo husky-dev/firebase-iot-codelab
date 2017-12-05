@@ -38,9 +38,9 @@
 
 ![install library](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image55.png)
 
-**WARN** наразі бібліотка не справна із-за того, що її розробник не додав файл `Adafruit_Sensor.h` до бібліотеки. Щоб уникнти помилок при компіляціїї, скачайте цей файл з репозиторію, який знаходится за шляхом [fix/Adafruit_Sensor.h](https://github.com/snipter/firebase-iot-codelab/blob/master/fix/Adafruit_Sensor.h). Створіть папку `lib/Adafruit_Sensor` у своєму проекту та додайте туди цей файл (`lib/Adafruit_Sensor/Adafruit_Sensor.h`). Проект повиннен виглядати як на скріншоті знизу:
+Таким же чином необхідно встановити бібліотеку `Adafruit Unified Sensor`:
 
-![DHT fix](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image62.png)
+![Adafruit Unified Sensor](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image66.png)
 
 Поверніться до вашого файлу main.cpp та додайте в нього наступний код:
 

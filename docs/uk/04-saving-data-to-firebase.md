@@ -8,7 +8,11 @@
 
 Раніше під назвою Firebase розумілась тільки NoSQL база даних. Наразі це цілий набір сервісів таких як: авторизація, хостинг, зберігання файлів, аналітика, тощо. Цей набір дозволить вам створювати свої додатки та серверну частину для IoT пристроїв без зайвих думок про написання коду. У цій лабораторній роботі в основному ми будемо використовувати саме базу даних. Перейдіть на вкладку Database.
 
-![Firebse database](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image10.png)
+![Firebse database](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image63.png)
+
+Оберіть `Realtime Database`:
+
+![Firebse database](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image64.png)
 
 Перейдіть на вкладку "Rules" і змініть правила доступу на приведені нижче. Не забудьте натиснути "PUBLISH" щоб зберігти зміни.
 
@@ -61,7 +65,7 @@
 
 Перейдіть до адмін-панелі. Якщо ви все сконфігурували вірно, то побачите дані в своїй базі даних:
 
-![Data in the Firebase](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image29.png)
+![Data in the Firebase](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image65.png)
  
 Змініть температуру сенсора, нагрівши його, і ви побачите, як відповідно змінюються дані в базі. Можете очистити базу, клікнувши на кнопку "закрити" поруч з коренем бази. При наступному оновлені дані знову з’являться.
 

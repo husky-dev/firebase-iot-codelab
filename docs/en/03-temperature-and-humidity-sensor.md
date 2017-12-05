@@ -38,6 +38,10 @@ Click on the library and install it:
 
 ![install library](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image55.png)
 
+In the same way install `Adafruit Unified Sensor`:
+
+![Adafruit Unified Sensor](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image66.png)
+
 Return to your `main.cpp` file and add the following code to it:
 
 ```c++

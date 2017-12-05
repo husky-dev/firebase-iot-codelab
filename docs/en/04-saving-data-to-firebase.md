@@ -8,7 +8,11 @@ Specify any project name (for example MyFirebaseProject) and choose your region.
 
 Previously, Friebase was just NoSQL database. For now it's a big set of the services such as: authorization, hosting, file storage, analytics, etc. This set will allow you to create your own applications and server side for IoT devices without having to worry about writing code. In this codelab we will basically use the database. Click the Database tab.
 
-![Firebse database](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image10.png)
+![Firebse database](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image63.png)
+
+Select `Realtime Database`:
+
+![Firebse database](https://github.com/snipter/firebase-iot-codelab/blob/master/docs/assets/image64.png)
 
 Click the "Rules" tab and change the access rules to the rules below. Do not forget to click "PUBLISH" to save the changes.
 

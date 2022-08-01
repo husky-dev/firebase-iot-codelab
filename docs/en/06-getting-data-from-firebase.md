@@ -13,7 +13,6 @@ Then click "ADD". A corresponding entry will be displayed in the database.
 Our task is to get the value of the field "servo / angle" and turn our servo to the appropriate angle.
 
 ```c++
-#include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 #include <ESP8266WebServer.h>
@@ -21,11 +20,10 @@ Our task is to get the value of the field "servo / angle" and turn our servo to 
 #include <Servo.h>
 
 // WiFi configs
-#define WIFI_SSID "SomeSSID"
-#define WIFI_PASSWORD "SomePass"
-
-// Firebase configs
-#define FIREBASE_HOST "example.firebaseio.com"
+#define FIREBASE_HOST "*******************************.firebaseio.com" 
+#define FIREBASE_AUTH "***************************"//Your Firebase Database Secret goes here
+#define WIFI_SSID "Your_ssid"                                    //your WiFi SSID for which yout NodeMCU connects
+#define WIFI_PASSWORD "Your_password"                              //Password of your wifi network 
 
 // Servo
 #define SERVO_PIN 4
@@ -35,9 +33,9 @@ int lastAngle = 0;
 
 void setup(){
     // Starting serial port
-    Serial.begin(115200);
+    Serial.begin(9600);
     // Connect to the WiFi
-    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    WiFi.begin(WIFI_SSID,WIFI_PASSWORD);
     Serial.print("Connecting");
     while (WiFi.status() != WL_CONNECTED) {
         Serial.print(".");
@@ -47,18 +45,29 @@ void setup(){
     Serial.print("Connected: ");
     Serial.println(WiFi.localIP());
     // Connecting to the Firebase
-    Firebase.begin(FIREBASE_HOST);
+    Firebase.begin(FIREBASE_HOST,FIREBASE_AUTH);
     // Servo
     myServo.attach(SERVO_PIN);
-    myServo.write(0);
+   // myServo.write(0);
 }
-
+void firebasereconnect()
+{
+  Serial.println("Trying to reconnect");
+  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
+  }
 void loop(){
-    angle = Firebase.getInt("servo/angle");
-    if(Firebase.failed()) {
+   if (Firebase.failed())
+      {
+      Serial.print("setting number failed:");
+      Serial.println(Firebase.error());
+      firebasereconnect();
+      return;
+      }
+    angle=Firebase.getString("servo/angle").toInt();
+    /*if(Firebase.failed()) {
         Serial.println("Getting data from Firebase failed");
         delay(1000);
-    }else if(angle != lastAngle){
+    }else*/ if (angle != lastAngle){
         Serial.print("Angle changed: ");
         Serial.println(angle);
         myServo.write(angle);
